@@ -1,4 +1,5 @@
 #include reflector.h
+#include mapvalue.h
 
 using namespace std;
 
@@ -10,6 +11,6 @@ Reflector::~Reflector() {
 
 }
 
-int Reflector::reflectValue(int x) {
+int Reflector::MapValue(int x): public MapValue {
 	return (x + 13) % 26;
 }

@@ -5,7 +5,7 @@ class Reflector {
 	public:
 		Reflector();
 		~Reflector();
-		int reflectValue(int);
+		int MapValue(int);
 };
 
 #endif

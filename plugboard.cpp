@@ -1,4 +1,5 @@
 #include plugboard.h
+#include mapvalue.h
 #include <iostream>
 #include <fstream>
 #include <string>
@@ -24,7 +25,7 @@ Plugboard::~Plugboard() {
 
 }
 
-int Plugboard::MapValue(int x) {
+int Plugboard::MapValue(int x): public MapValue {
 	for (map<int,int>::iterator iter = plugboard.begin()
 	 ; iter != plugboard.end() ; ++iter) {
 		if (x == iter->first) {
