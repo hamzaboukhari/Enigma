@@ -2,7 +2,7 @@
 #define PLUGBOARD_H
 #include "mapvalue.h"
 #include <map>
-using std::map
+using std::map;
 
 class Plugboard : public MapValue {
 	map<int,int> plugboard;

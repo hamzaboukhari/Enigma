@@ -1,7 +1,8 @@
 #ifndef ROTOR_H
 #define ROTOR_H
 #include "mapvalue.h"
-using std::map
+#include <vector>
+using std::vector;
 
 class Rotor : public MapValue {
 

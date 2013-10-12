@@ -9,6 +9,11 @@
 
 using namespace std;
 
+char Encrypt(char c);
+void RotateRotors();
+char IntToChar(int x);
+int CharToInt(char c);
+
 vector<Rotor> rotors;
 Plugboard* plugboard;
 Reflector* reflector;
@@ -31,7 +36,7 @@ int main(int argc, char **argv) {
 	char c;
 
 	while (cin) {
-		c = cin.get()
+		c = cin.get();
 		if (isupper(c)) {
 			cout << Encrypt(c);
 		} else if (isspace(c)) {
@@ -51,13 +56,13 @@ char Encrypt(char c) {
 
 	x = plugboard->MapValue(x);
 
-	for (int i = 0 ; i < rotors.size() ; ++i {
+	for (int i = 0 ; i < rotors.size() ; ++i) {
 		x = rotors[i].MapValue(x);
 	}
 
 	x = reflector->MapValue(x);
 
-	for (int i = rotors.size() - 1 ; i >= 0 ; --i {
+	for (int i = rotors.size() - 1 ; i >= 0 ; --i) {
 		x = rotors[i].BackwardMapValue(x);
 	}
 
@@ -67,16 +72,14 @@ char Encrypt(char c) {
 		RotateRotors();
 	}
 
-	char c = IntToChar(x);
-
-	return c;
+	return IntToChar(x);
 }
 
 void RotateRotors() {
 	rotors[0].Rotate();
 
 	for (int i = 0 ; i < rotors.size() ; ++i) {
-		if (rotors[i].fullRotation()) {
+		if (rotors[i].FullRotation()) {
 			if (i + 1 < rotors.size()) {
 				rotors[i + 1].Rotate();
 			}
