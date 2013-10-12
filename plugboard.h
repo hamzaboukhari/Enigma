@@ -1,10 +1,10 @@
 #ifndef PLUGBOARD_H
 #define PLUGBOARD_H
-#include "mapvalue.h"
+#include "mapping.h"
 #include <map>
 using std::map;
 
-class Plugboard : public MapValue {
+class Plugboard : public Mapping {
 	map<int,int> plugboard;
 	public:
 		Plugboard(char* file);

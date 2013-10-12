@@ -1,7 +1,7 @@
 #include "rotor.h"
 #include "plugboard.h"
 #include "reflector.h"
-#include "mapvalue.h"
+#include "mapping.h"
 #include <stdexcept>
 #include <iostream>
 #include <fstream>

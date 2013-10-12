@@ -1,8 +1,8 @@
 #ifndef REFLECTOR_H
 #define REFLECTOR_H
-#include "mapvalue.h"
+#include "mapping.h"
 
-class Reflector : public MapValue {
+class Reflector : public Mapping {
 	public:
 		Reflector();
 		~Reflector();
