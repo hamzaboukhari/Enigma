@@ -1,5 +1,4 @@
 #include plugboard.h
-#include mapvalue.h
 #include <iostream>
 #include <fstream>
 #include <string>
@@ -11,11 +10,13 @@ Plugboard::Plugboard(char* file) {
 	int x;
 	int y;
 	data.open(file);
+	data >> x;
+	data >> y;
 
 	while (!data.eof()) {
+		plugboard.insert(pair<int,int>(x,y));
 		data >> x;
 		data >> y;
-		plugboard.insert(pair<int,int>(x,y));
 	}
 
 	data.close();
@@ -25,7 +26,7 @@ Plugboard::~Plugboard() {
 
 }
 
-int Plugboard::MapValue(int x): public MapValue {
+int Plugboard::MapValue(int x) {
 	for (map<int,int>::iterator iter = plugboard.begin()
 	 ; iter != plugboard.end() ; ++iter) {
 		if (x == iter->first) {

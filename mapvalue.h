@@ -1,9 +1,9 @@
 #ifndef MAPVALUE_H
-#define MAPVALUE-H
+#define MAPVALUE_H
 
 class MapValue {
 	public:
-		int MapValue(int x);
+		virtual int MapValue(int) = 0;
 };
 
-#endif 
+#endif
