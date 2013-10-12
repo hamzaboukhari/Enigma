@@ -15,7 +15,7 @@ Rotor::Rotor(char* file) {
 		forwardRotor[i] = x - i;
 		backwardRotor[x] = i - x;
 		i++;
-		data >> x
+		data >> x;
 	}
 
 	data.close();
@@ -29,7 +29,7 @@ int Rotor::MapValue(int x) {
 	if (x < NUM_LETTERS) {
 		return (forwardRotor[x] + x)%26;
 	} else {
-		"error"
+		cout << "error" << endl;
 	}
 }
 
@@ -37,7 +37,7 @@ int Rotor::BackwardMapValue(int x) {
 	if (x < NUM_LETTERS) {
 		return (backwardRotor[x] + x)%26;
 	} else {
-		"error"
+		cout << "error" << endl;
 	}
 }
 

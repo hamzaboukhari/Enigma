@@ -6,13 +6,17 @@
 #include <iostream>
 #include <fstream>
 #include <vector>
+#include <string>
+#include <string.h>
+#include <stdio.h>
+#include <ctype.h>
 
 using namespace std;
 
-char Encrypt(char c);
+char Encrypt(char);
 void RotateRotors();
-char IntToChar(int x);
-int CharToInt(char c);
+char IntToChar(int);
+int CharToInt(char);
 
 vector<Rotor> rotors;
 Plugboard* plugboard;
