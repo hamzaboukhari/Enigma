@@ -1,6 +1,7 @@
-#include "rotor.h"
+#include "rotor.hpp"
 #include <iostream>
 #include <fstream>
+#include <algorithm>
 
 using namespace std;
 
@@ -12,8 +13,7 @@ Rotor::Rotor(char* file) {
 	int i = 0;
 
 	while (!data.eof()) {
-		forwardRotor[i] = x - i;
-		backwardRotor[x] = i - x;
+		rotorOffset[i] = x - i;
 		i++;
 		data >> x;
 	}
@@ -27,17 +27,22 @@ Rotor::~Rotor() {
 
 int Rotor::MapValue(int x) {
 	if (x < NUM_LETTERS) {
-		return (forwardRotor[x] + x)%26;
+		int n = x + rotorOffset[x];
+		if (n < 0) {
+			return 26 + (n%26);
+		} else {
+			return n%26;
+		}
 	} else {
-		cout << "error" << endl;
+		cout << "Invalid Value" << endl;
 	}
 }
 
 int Rotor::BackwardMapValue(int x) {
-	if (x < NUM_LETTERS) {
-		return (backwardRotor[x] + x)%26;
-	} else {
-		cout << "error" << endl;
+	for (int i = 0 ; i < NUM_LETTERS ; ++i) {
+		if (MapValue(i) == x) {
+			return i;
+		}
 	}
 }
 
@@ -50,16 +55,7 @@ bool Rotor::FullRotation() {
 }
 
 void Rotor::Rotate() {
-	int forwardTail = forwardRotor[NUM_LETTERS - 1];
-	int backwardTail = backwardRotor[NUM_LETTERS - 1];
-
-	for (int i = NUM_LETTERS - 2 ; i >= 0 ; i--) {
-		forwardRotor[i + 1] = forwardRotor[i];
-		backwardRotor[i + 1] = backwardRotor[i];
-	}
-
-	forwardRotor[0] = forwardTail;
-	backwardRotor[0] = backwardTail;
+	std::rotate(rotorOffset, rotorOffset + 1, rotorOffset + 26);
 	numRotations++;
 }
 

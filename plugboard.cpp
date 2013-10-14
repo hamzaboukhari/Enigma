@@ -1,4 +1,4 @@
-#include "plugboard.h"
+#include "plugboard.hpp"
 #include <iostream>
 #include <fstream>
 #include <string>
@@ -36,5 +36,4 @@ int Plugboard::MapValue(int x) {
 		}
 	}
 	return x;
-
 }
